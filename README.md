@@ -40,13 +40,13 @@ and Gunicorn processes by including the module with this special syntax:
     class { "webapp::python": owner => "www-mgr", group => "www-mgr" }
 
 By default this module will look for source code under `/usr/local/src/$name`
-and create virtualenvs under `/usr/local/venv`. To override this, provide
+and create virtualenvs under `/usr/local/virtualenv`. To override this, provide
 the following arguments on class instantiation:
 
     class { "webapp::python": owner => "www-mgr",
                               group => "www-mgr",
                               src_root => "/home/www-mgr/src",
-                              venv_root => "/home/www-mgr/venv",
+                              virtualenv_root => "/home/www-mgr/virtualenv",
     }
 
 You can also provide Nginx and Monit specific settings:
@@ -54,7 +54,7 @@ You can also provide Nginx and Monit specific settings:
     class { "webapp::python": owner => "www-mgr",
                               group => "www-mgr",
                               src_root => "/home/www-mgr/src",
-                              venv_root => "/home/www-mgr/venv",
+                              virtualenv_root => "/home/www-mgr/virtualenv",
                               nginx_workers => 2,
                               monit_admin => "eivind@uggedal.com",
                               monit_interval => 30,
